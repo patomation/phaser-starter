@@ -39,8 +39,14 @@ export default class Demo extends Phaser.Scene {
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#125555',
-  width: 800,
-  height: 600,
+  // Stuff that makes the game responsive
+  scale: {
+    mode: Phaser.Scale.FIT,
+    parent: 'phaser-example',
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 800,
+    height: 600
+  },
   scene: Demo
 }
 
