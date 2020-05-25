@@ -1,5 +1,8 @@
 import 'phaser'
-import logo from './images/icon.png'
+import logo from './images/phaser3-logo.png'
+import libs from './images/libs.png'
+import plasmaBundle from './vendor/plasma-bundle.glsl'
+import starFields from './vendor/starfields.glsl'
 
 export default class Demo extends Phaser.Scene {
   constructor () {
@@ -8,7 +11,9 @@ export default class Demo extends Phaser.Scene {
 
   preload (): void {
     this.load.image('logo', logo)
-    this.load.image('libs', logo)
+    this.load.image('libs', libs)
+    this.load.glsl('bundle', plasmaBundle)
+    this.load.glsl('stars', starFields)
   }
 
   create (): void {

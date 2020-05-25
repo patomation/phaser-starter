@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --config ./config/webpack.config.js",
+    "start": "webpack-dev-server --mode development --hot --open --config ./config/webpack.config.js",
     "build": "webpack --mode production --config ./config/webpack.config.js",
     "lint": "./node_modules/.bin/eslint **/*.{js,ts,tsx}",
     "test": "echo \"Error: no test specified\" && exit 1"
