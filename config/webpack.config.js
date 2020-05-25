@@ -13,6 +13,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader', // creates style nodes from JS strings
