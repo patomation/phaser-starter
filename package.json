@@ -1,0 +1,23 @@
+{
+  "name": "phaser-starter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Kelly",
+  "license": "MIT",
+  "dependencies": {
+    "phaser": "^3.23.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
