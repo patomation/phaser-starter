@@ -1,6 +1,8 @@
-"typeRoots": [
-  "./node_modules/phaser/types"
-],
-"types": [
-  "Phaser"
-]
+{
+  "compilerOptions": {
+      "target": "es5",
+      "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
