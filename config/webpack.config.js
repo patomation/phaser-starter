@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.eot$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.mp3$/,
         loader: 'file-loader?name=[name].[ext]' // Keeps original file name
+      },
+      {
+        test: /\.(glsl|vs|fs)$/,
+        loader: 'file-loader?name=[name].[ext]'
       }
     ]
   },

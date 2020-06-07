@@ -3,7 +3,9 @@ import skyAsset from './images/sky.png'
 import platformAsset from './images/platform.png'
 import starAsset from './images/star.png'
 import bombAsset from './images/bomb.png'
-import dudeAsset from './images/dude.png'
+import dudeAsset from './images/space-dude.png'
+import plasmaBundle from './vendor/plasma-bundle.glsl'
+import starFields from './vendor/starfields.glsl'
 
 let player
 let platforms
@@ -20,6 +22,8 @@ export default class Demo extends Phaser.Scene {
   }
 
   preload (): void {
+    this.load.glsl('bundle', plasmaBundle)
+    this.load.glsl('stars', starFields)
     this.load.image('sky', skyAsset)
     this.load.image('ground', platformAsset)
     this.load.image('star', starAsset)
@@ -30,10 +34,12 @@ export default class Demo extends Phaser.Scene {
   }
 
   create (): void {
+    this.add.shader('RGB Shift Field', 0, 0, 800, 600).setOrigin(0)
+    this.add.shader('Plasma', 0, 412, 800, 172).setOrigin(0)
     /**
      * WORLD
      */
-    this.add.image(400, 300, 'sky')
+    // this.add.image(400, 300, 'sky')
     platforms = this.physics.add.staticGroup()
     platforms.create(400, 568, 'ground').setScale(2).refreshBody()
     platforms.create(600, 400, 'ground')
@@ -63,6 +69,11 @@ export default class Demo extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
       frameRate: 10,
       repeat: -1
+    })
+    this.anims.create({
+      key: 'death',
+      frames: this.anims.generateFrameNumbers('dude', { start: 9, end: 14 }),
+      frameRate: 10
     })
 
     /**
@@ -113,7 +124,7 @@ export default class Demo extends Phaser.Scene {
       bomb.disableBody(true, true)
       // Do something with the player
       player.setTint(0xff0000)
-      player.anims.play('turn')
+      player.anims.play('death')
       // Set game over to true so game over screen displays in update maybe?
       gameOver = true
     }
@@ -143,6 +154,9 @@ export default class Demo extends Phaser.Scene {
     // JUMP
     if (cursors.up.isDown && player.body.touching.down) {
       player.setVelocityY(-330)
+    // Fall faster
+    } else if (cursors.down.isDown && !player.body.touching.down) {
+      player.setVelocityY(330)
     }
   }
 }
@@ -157,6 +171,13 @@ const config = {
       gravity: { y: 300 },
       debug: false
     }
+  },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    parent: 'phaser-example',
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 800,
+    height: 600
   },
   scene: Demo
 }
