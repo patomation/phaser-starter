@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Source: https://bitbrain.github.io/2019/02/18/automatically-publish-games-to-itchio.html
 set -e
 set -o pipefail
 
