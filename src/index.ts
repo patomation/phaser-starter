@@ -25,6 +25,8 @@ export default class Demo extends Phaser.Scene {
 
     const logo = this.add.image(400, 70, 'logo')
 
+    this.add.text(10, 10, 'NOW WITH CONTINUOUS DEPLOYMENT!!!!')
+
     this.tweens.add({
       targets: logo,
       y: 350,
