@@ -10,6 +10,9 @@ I borrowed some ideas for organizing scenes and sprites by extending the Phaser 
 ### Why Use This Starter?
 If you want a clean project that will help you white better commit messages and clean commit code this project is for you.
 
+Try the [DEMO](https://phaser-starter.patomation.com/)!
+
+
 ![screen_shot](https://raw.githubusercontent.com/patomation/phaser-starter/master/phaser_starter.png)
 
 ## Getting Started
