@@ -1,8 +1,43 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const path = require('path')
-
+const TerserPlugin = require('terser-webpack-plugin')
 module.exports = {
   entry: './src/index.ts',
+  optimization: {
+    removeAvailableModules: true,
+    removeEmptyChunks: true,
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name (module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+            return `npm.${packageName.replace('@', '')}`
+          }
+        }
+      }
+    },
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        terserOptions: {
+          compress: true,
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    pathinfo: false, // optimization
+    filename: '[name][hash].js'
+  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -45,9 +80,5 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     })
-  ],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  }
+  ]
 }
