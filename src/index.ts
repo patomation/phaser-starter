@@ -1,4 +1,5 @@
-import 'phaser'
+// import 'phaser'
+import Phaser from './Phaser'
 import Loader from './scenes/Loader'
 import Title from './scenes/Title'
 import Game from './scenes/Game'

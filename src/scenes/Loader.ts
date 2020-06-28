@@ -1,4 +1,5 @@
 
+import Phaser from '../Phaser'
 /**
  * LOADER SCREEN
  * Load all your images and sound here

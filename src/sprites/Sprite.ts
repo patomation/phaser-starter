@@ -1,3 +1,5 @@
+import Phaser from '../Phaser'
+
 export interface Options {
   scene: Phaser.Scene
   x: number
@@ -6,6 +8,9 @@ export interface Options {
   owner?: string
   rank?: number
 }
+
+// let test = null
+
 export default class Sprite extends Phaser.GameObjects.Sprite {
   constructor ({
     scene,
@@ -13,6 +18,7 @@ export default class Sprite extends Phaser.GameObjects.Sprite {
     key
   }: Options) {
     super(scene, x, y, key)
+    // test = this
     // Adds object to scene automatically
     scene.add.existing(this)
     // Allow clicking ect

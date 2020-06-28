@@ -1,3 +1,5 @@
+import Phaser from '../Phaser'
+
 export default class Game extends Phaser.Scene {
   constructor () {
     super({ key: 'Game' })
