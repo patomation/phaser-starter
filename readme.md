@@ -1,4 +1,4 @@
-# Phaser Starter
+# Phaser Starter - Is great
 
 A typescript webpack phaser3 game starter project. This provides a more ridget development environment from the get go. It includes ava for unit tests. It uses husky to lint commit messages.
 ***Additionally unit tests must pass and code must be linted before commits are allowed.***
