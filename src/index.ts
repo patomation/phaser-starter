@@ -1,7 +1,10 @@
 import 'phaser'
+import BoardPlugin from 'phaser3-rex-plugins/plugins/board-plugin.js'
+
 import Loader from './scenes/Loader'
 import Title from './scenes/Title'
 import Game from './scenes/Game'
+import Grid from './scenes/Grid'
 
 const config = {
   type: Phaser.AUTO,
@@ -17,8 +20,16 @@ const config = {
   scene: [
     Loader,
     Title,
-    Game
-  ]
+    Game,
+    Grid
+  ],
+  plugins: {
+    scene: [{
+      key: 'rexBoard',
+      plugin: BoardPlugin,
+      mapping: 'rexBoard'
+    }]
+  }
 }
 
 const game = new Phaser.Game(config) // eslint-disable-line 

@@ -53,6 +53,7 @@
     "jsdom": "^16.3.0",
     "jsdom-global": "^3.0.2",
     "nyc": "^15.1.0",
+    "phaser3-rex-plugins": "^1.1.19",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^3.0.7",

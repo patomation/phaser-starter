@@ -27,7 +27,7 @@ export default class Loader extends Phaser.Scene {
 
     this.load.on('complete', () => {
       progress.destroy()
-      this.scene.start('Title')
+      this.scene.start('Grid')
     })
 
     this.load.image('logo', logo)
