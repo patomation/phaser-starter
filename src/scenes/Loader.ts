@@ -1,12 +1,11 @@
-
 /**
  * LOADER SCREEN
  * Load all your images and sound here
  */
-import logo from '../assets/images/phaser3-logo.png'
-import libs from '../assets/images/libs.png'
-import plasmaBundle from '../assets/glsl/plasma-bundle.glsl'
-import starFields from '../assets/glsl/starfields.glsl'
+import * as logo from '../assets/images/phaser3-logo.png'
+import * as libs from '../assets/images/libs.png'
+import * as plasmaBundle from '../assets/glsl/plasma-bundle.glsl'
+import * as starFields from '../assets/glsl/starfields.glsl'
 
 export default class Loader extends Phaser.Scene {
   constructor () {

@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
       "target": "es5",
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "allowJs": false
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "ts-node": {
+    "files": true
+  }
 }
