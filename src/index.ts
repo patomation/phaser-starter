@@ -22,8 +22,8 @@ export default class Demo extends Phaser.Scene {
   }
 
   preload (): void {
-    this.load.glsl('bundle', plasmaBundle)
-    this.load.glsl('stars', starFields)
+    // this.load.glsl('bundle', plasmaBundle)
+    // this.load.glsl('stars', starFields)
     this.load.image('sky', skyAsset)
     this.load.image('ground', platformAsset)
     this.load.image('star', starAsset)
