@@ -8,13 +8,14 @@ export default class Game extends Phaser.Scene {
     super({ key: 'Grid' })
   }
 
-  preload () {
-    this.load.scenePlugin({
-      key: 'rexboardplugin',
-      url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexboardplugin.min.js',
-      sceneKey: 'rexBoard'
-    })
-  }
+  // Not necessary to load from cdn since plugin is installed with npm
+  // preload () {
+  //   this.load.scenePlugin({
+  //     key: 'rexboardplugin',
+  //     url: 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexboardplugin.min.js',
+  //     sceneKey: 'rexBoard'
+  //   })
+  // }
 
   create () {
     const gridGraphics = this.add.graphics({
@@ -25,18 +26,19 @@ export default class Game extends Phaser.Scene {
       }
     })
 
-    // const grid = this.rexBoard.add.quadGrid({
-    //     x: 0,
-    //     y: 0,
-    //     cellWidth: 0,
-    //     cellHeight: 0,
-    //     type: 0,
-    //     // dir: 4
-    // });
+    const grid = this.rexBoard.add.quadGrid({
+      x: 0,
+      y: 0,
+      cellWidth: 64,
+      cellHeight: 64,
+      type: 0,
+      dir: 4
+    })
 
     const board = this.rexBoard.add.board({
+      grid,
       // grid: getHexagonGrid(this),
-      grid: getQuadGrid(this),
+      // grid: getQuadGrid(this),
       width: 20,
       height: 18
     })
@@ -57,18 +59,16 @@ export default class Game extends Phaser.Scene {
         }
 
         this.rexBoard.add.shape(board, tileXY.x, tileXY.y, 0, COLOR_PRIMARY).setScale(0.7)
-        const resultTileXYArray = board.getTileXYAtDirection(tileXY, [0, 2, 4], { end: 3 })
-        let resultTileXY
-        for (let i = 0, cnt = resultTileXYArray.length; i < cnt; i++) {
-          resultTileXY = resultTileXYArray[i]
-          if (!board.contains(resultTileXY.x, resultTileXY.y)) {
-            continue
-          }
-          this.rexBoard.add.shape(board, resultTileXY.x, resultTileXY.y, 0, COLOR_LIGHT).setScale(0.7)
-        }
+        // const resultTileXYArray = board.getTileXYAtDirection(tileXY, [0, 2, 4], { end: 3 })
+        // let resultTileXY
+        // for (let i = 0, cnt = resultTileXYArray.length; i < cnt; i++) {
+        //   resultTileXY = resultTileXYArray[i]
+        //   if (!board.contains(resultTileXY.x, resultTileXY.y)) {
+        //     continue
+        //   }
+        //   this.rexBoard.add.shape(board, resultTileXY.x, resultTileXY.y, 0, COLOR_LIGHT).setScale(0.7)
+        // }
       }, this)
-
-    this.add.text(0, 580, 'Click to put center chess')
   }
 
   rexBoard: any
